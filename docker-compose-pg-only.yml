@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:17.3-alpine
+    container_name: postgres
+    restart: always
+    env_file:
+      - ./server/.env
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - ./data/uuid-data.sql:/docker-entrypoint-initdb.d/uuid-data.sql:ro
+volumes:
+  db:
+    driver: local

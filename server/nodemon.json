@@ -1,0 +1,5 @@
+{
+  "exec": "tsx ./src/wait-for-db.ts && tsx ./src/index.ts",
+  "ext": "ts",
+  "watch": ["src"]
+}

@@ -1,0 +1,71 @@
+# Node.js dependencies
+node_modules/
+**/node_modules/
+
+# .env files
+.env
+**/.env
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+out/
+**/out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+turbo.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+**/lerna-debug.log*
+**/turbo.log
+
+# Dependency locks
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+**/package-lock.json
+**/yarn.lock
+**/pnpm-lock.yaml
+
+# TypeScript build artifacts
+*.tsbuildinfo
+**/*.tsbuildinfo
+
+# Angular-specific files
+.angular/
+**/.angular/
+.angular/cache/
+**/.angular/cache/
+
+# React-specific files
+.next/
+**/.next/
+.vercel/
+**/.vercel/
+.cache/
+**/.cache/
+
+# Storybook build output
+storybook-static/
+**/storybook-static/
+
+# Coverage reports
+coverage/
+**/coverage/
+
+# Temporary files
+.DS_Store
+Thumbs.db
+*.bak
+**/.DS_Store
+**/Thumbs.db
+**/*.bak
