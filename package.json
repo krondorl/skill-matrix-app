@@ -11,12 +11,21 @@
     "install:all": "npm run install:server && npm run install:client",
     "run:server": "cd server && npm run dev",
     "run:client": "npm start --prefix server",
-    "start:db": "docker-compose -f docker-compose-pg-only.yml up -d",
+    "start:db": "docker compose -f docker-compose-pg-only.yml up -d",
     "wait-for-db": "cd server/src && npx tsx wait-for-db.ts",
     "start:server": "npm run wait-for-db && npm run run:server",
     "start": "npm run start:db && npm run start:server"
   },
-  "keywords": ["full-stack", "react", "express", "typescript", "postgresql"],
+  "keywords": [
+    "full-stack",
+    "react",
+    "express",
+    "typescript",
+    "postgresql"
+  ],
   "author": "Adam Burucs",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "skill-matrix-app": "file:"
+  }
 }
