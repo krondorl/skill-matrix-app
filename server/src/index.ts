@@ -6,6 +6,7 @@
  */
 
 import express, { Express } from 'express';
+import { rateLimit } from 'express-rate-limit';
 import dotenv from 'dotenv';
 import employeesRouter from './routes/employees.ts';
 import skillsRouter from './routes/skills.ts';
@@ -42,6 +43,13 @@ if (dbConnect) {
   process.exit(1);
 }
 
+const limiter = rateLimit({
+  windowMs: 1000,
+  limit: 1,
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+});
+
+app.use(limiter);
 app.use(express.json());
 app.use('/api/employees', employeesRouter);
 app.use('/api/skills', skillsRouter);
