@@ -7,15 +7,15 @@
 
 import { exec } from 'child_process';
 
-const POSTGRES_HOST: string = process.env.POSTGRES_HOST || 'postgres'; // Change to "postgres" if using Docker Compose
-const POSTGRES_PORT: number = 5432; // Default Postgres port
-const MAX_RETRIES: number = 25;
-const RETRY_DELAY: number = 5000; // 5 seconds
+export const POSTGRES_HOST: string = process.env.POSTGRES_HOST || 'postgres';
+export const POSTGRES_PORT: number = 5432;
+export const MAX_RETRIES: number = 6;
+export const RETRY_DELAY: number = 5000; // 5 seconds
 
-function checkDatabase(): Promise<void> {
+export function checkDatabase(host: string, port: number): Promise<void> {
   return new Promise((resolve, reject) => {
     exec(
-      `docker exec postgres pg_isready -h ${POSTGRES_HOST} -p ${POSTGRES_PORT}`,
+      `docker exec postgres pg_isready -h ${host} -p ${port}`,
       (error: Error | null, stdout: string) => {
         if (stdout.includes('accepting connections')) {
           console.log('✅ Database is ready!');
@@ -28,21 +28,20 @@ function checkDatabase(): Promise<void> {
   });
 }
 
-async function waitForDatabase(
-  retries: number = MAX_RETRIES,
-  delay: number = RETRY_DELAY,
-): Promise<void> {
+export async function waitForDatabase(
+  retries: number,
+  delay: number,
+  host: string,
+  port: number,
+): Promise<boolean> {
   for (let i = 0; i < retries; i++) {
     try {
-      await checkDatabase();
-      return;
+      await checkDatabase(host, port);
+      return true;
     } catch (error) {
       console.log(`⏳ Waiting for database... (${i + 1}/${retries})`);
       await new Promise(res => setTimeout(res, delay));
     }
   }
-  console.error('❌ Database did not become ready in time.');
-  process.exit(1);
+  return false;
 }
-
-waitForDatabase();

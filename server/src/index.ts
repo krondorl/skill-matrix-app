@@ -7,29 +7,39 @@
 
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
 import usersRouter from './routes/usersRouter.ts';
+import {
+  MAX_RETRIES,
+  POSTGRES_HOST,
+  POSTGRES_PORT,
+  RETRY_DELAY,
+  waitForDatabase,
+} from './lib/wait-for-db.ts';
 
 dotenv.config();
 
 const app: Express = express();
 const port = 3000;
 
-app.use(cors());
-
-app.use(
-  cors({
-    origin: 'http://localhost:5173', // Allow only React frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }),
+const dbConnect = await waitForDatabase(
+  MAX_RETRIES,
+  RETRY_DELAY,
+  POSTGRES_HOST,
+  POSTGRES_PORT,
 );
 
+console.log();
+console.log('Skill Matrix App');
+console.log();
+
+if (dbConnect) {
+  app.listen(port, () => {
+    console.log(`[server]: Server is running at http://localhost:${port}`);
+  });
+} else {
+  console.error('❌ Database did not become ready in time.');
+  process.exit(1);
+}
+
 app.use(express.json());
-
 app.use('/api', usersRouter);
-
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-  console.log(`[server]: CORS is enabled for frontend`);
-});
