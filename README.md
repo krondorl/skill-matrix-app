@@ -1,4 +1,4 @@
-# Skill Matrix App
+# ⭐ Skill Matrix App
 
 A full-stack app using the latest versions of the packages.
 
@@ -10,6 +10,7 @@ Using these technologies:
   - ⚡ Vite
 - Backend
   - 🟦 TypeScript
+  - 🟢 Node.js
   - 🚀 Express
   - 📦 PostgreSQL
 - Containers: 🐳 Docker
