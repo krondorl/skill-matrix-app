@@ -17,7 +17,7 @@ const pool = new Pool({
   port: parseInt(process.env.POSTGRES_PORT || '5432'),
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_NAME,
+  database: process.env.POSTGRES_DB,
 });
 
 export const query = async <T extends QueryResult>(
