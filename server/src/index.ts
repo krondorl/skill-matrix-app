@@ -21,16 +21,16 @@ dotenv.config();
 const app: Express = express();
 const port = 3000;
 
+console.log();
+console.log('Skill Matrix App');
+console.log();
+
 const dbConnect = await waitForDatabase(
   MAX_RETRIES,
   RETRY_DELAY,
   POSTGRES_HOST,
   POSTGRES_PORT,
 );
-
-console.log();
-console.log('Skill Matrix App');
-console.log();
 
 if (dbConnect) {
   app.listen(port, () => {
