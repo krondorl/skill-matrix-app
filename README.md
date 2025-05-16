@@ -12,6 +12,7 @@ Using these technologies:
   - 🟦 TypeScript
   - 🟢 Node.js
   - 🚀 Express
+  - 🚦 Express Rate Limit
   - 📦 PostgreSQL
 - Containers: 🐳 Docker
 
