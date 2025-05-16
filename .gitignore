@@ -28,14 +28,6 @@ turbo.log
 **/lerna-debug.log*
 **/turbo.log
 
-# Dependency locks
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-**/package-lock.json
-**/yarn.lock
-**/pnpm-lock.yaml
-
 # TypeScript build artifacts
 *.tsbuildinfo
 **/*.tsbuildinfo
