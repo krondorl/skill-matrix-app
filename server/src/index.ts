@@ -7,7 +7,8 @@
 
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
-import usersRouter from './routes/usersRouter.ts';
+import employeesRouter from './routes/employees.ts';
+import skillsRouter from './routes/skills.ts';
 import {
   MAX_RETRIES,
   POSTGRES_HOST,
@@ -42,4 +43,5 @@ if (dbConnect) {
 }
 
 app.use(express.json());
-app.use('/api', usersRouter);
+app.use('/api/employees', employeesRouter);
+app.use('/api/skills', skillsRouter);

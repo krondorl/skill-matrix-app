@@ -5,15 +5,14 @@
  * https://opensource.org/licenses/MIT
  */
 
-import express, { Request, Response, Router } from 'express';
+import express, { Router } from 'express';
 import * as db from '../db/index.ts';
 import { QueryResult } from 'pg';
 import { Employee } from '../models/employee.ts';
-import { Skill } from '../models/skill.ts';
 
-const router: Router = express.Router();
+const employeesRouter: Router = express.Router();
 
-router.get('/employees', async (req, res) => {
+employeesRouter.get('/', async (_req, res) => {
   try {
     const result = await db.query<QueryResult<Employee>>(
       'SELECT * FROM employees',
@@ -27,7 +26,7 @@ router.get('/employees', async (req, res) => {
   }
 });
 
-router.get('/employees/:id', async (req, res) => {
+employeesRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const { rows } = await db.query<QueryResult<Employee>>(
@@ -48,30 +47,4 @@ router.get('/employees/:id', async (req, res) => {
   }
 });
 
-router.get('/skills', async (req, res) => {
-  const result = await db.query<QueryResult<Skill>>('SELECT * FROM skills');
-  res.json(result.rows);
-});
-
-router.get('/skills/:id', async (req, res) => {
-  const { id } = req.params;
-  const { rows } = await db.query<QueryResult<Skill>>(
-    'SELECT * FROM skills WHERE id = $1',
-    [id],
-  );
-  res.send(rows[0]);
-});
-
-router.post('/', (req: Request, res: Response) => {
-  res.send('POST create user');
-});
-
-router.put('/', (req: Request, res: Response) => {
-  res.send('PUT update user');
-});
-
-router.delete('/', (req: Request, res: Response) => {
-  res.send('DELETE user');
-});
-
-export default router;
+export default employeesRouter;
