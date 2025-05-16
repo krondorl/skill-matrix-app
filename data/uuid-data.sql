@@ -1,3 +1,10 @@
+-- Create database if not exists
+SELECT 'CREATE DATABASE skillmatrixdb'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'skillmatrixdb')\gexec
+
+-- Connect to the database
+\c skillmatrixdb;
+
 -- Enable pgcrypto extension for UUID generation
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
