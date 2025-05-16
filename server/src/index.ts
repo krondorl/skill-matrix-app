@@ -19,7 +19,7 @@ import {
 dotenv.config();
 
 const app: Express = express();
-const port = 3000;
+const port = 4566;
 
 console.log();
 console.log('⭐ Skill Matrix App');
