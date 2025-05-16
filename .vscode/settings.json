@@ -4,10 +4,10 @@
   },
   "eslint.format.enable": true,
   "stylelint.enable": true,
-  "css.validate": false,
-  "scss.validate": false,
-  "[javascript,typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  "css.validate": true,
+  "scss.validate": true,
+  "[javascript,typescript, typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
