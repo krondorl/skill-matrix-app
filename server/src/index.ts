@@ -22,7 +22,7 @@ const app: Express = express();
 const port = 3000;
 
 console.log();
-console.log('Skill Matrix App');
+console.log('⭐ Skill Matrix App');
 console.log();
 
 const dbConnect = await waitForDatabase(
