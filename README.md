@@ -5,14 +5,14 @@ A full-stack app using the latest versions of the packages.
 Using these technologies:
 
 - Frontend
-  - TypeScript
-  - React
-  - Vite
+  - 🟦 TypeScript
+  - ⚛️ React
+  - ⚡ Vite
 - Backend
-  - TypeScript
-  - Express
-  - PostgreSQL
-- Containers: Docker
+  - 🟦 TypeScript
+  - 🚀 Express
+  - 📦 PostgreSQL
+- Containers: 🐳 Docker
 
 ## ⚠️ Disclaimer
 
