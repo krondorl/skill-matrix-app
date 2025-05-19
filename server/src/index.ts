@@ -6,6 +6,7 @@
  */
 
 import express, { Express } from 'express';
+import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 import dotenv from 'dotenv';
 import employeesRouter from './routes/employees.ts';
@@ -49,6 +50,13 @@ const limiter = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 });
 
+const corsOptions: cors.CorsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 app.use(limiter);
 app.use(express.json());
 app.use('/api/employees', employeesRouter);
