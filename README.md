@@ -8,6 +8,8 @@ Using these technologies:
   - 🟦 TypeScript
   - ⚛️ React
   - ⚡ Vite
+  - 🎨 Tailwind CSS
+  - ✒️ shadcn/ui
 - Backend
   - 🟦 TypeScript
   - 🟢 Node.js
