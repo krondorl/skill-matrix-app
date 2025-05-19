@@ -27,7 +27,6 @@ export default function EmployeeCard({ employee }: EmployeeProps) {
       </CardHeader>
       <CardContent>
         <p>{employee?.position}</p>
-        <p>domain: {employee?.domain}</p>
         <p>expertise level: {employee?.expertise_level}</p>
       </CardContent>
     </Card>
