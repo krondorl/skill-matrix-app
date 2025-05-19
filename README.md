@@ -77,7 +77,10 @@ Expertise level should have **exactly one** of these:
 A2, B1, B2, B3, C1
 ```
 
-The app should manage the `/api/users` endpoint:
+The app should manage these endpoints:
+
+- `/api/employees`
+- `/api/skills`
 
 | Function | Verb     |
 | -------- | -------- |
@@ -121,7 +124,7 @@ Run these commands in the top level repo folder:
 
 **Please note**: only the backend is working at the moment.
 
-## Licenc
+## License
 
 Please see the [LICENSE file](LICENSE).
 
