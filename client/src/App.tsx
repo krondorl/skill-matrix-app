@@ -5,11 +5,41 @@
  * https://opensource.org/licenses/MIT
  */
 
+import { useEffect, useState } from 'react';
 import './App.css';
 import EmployeeList from './components/EmployeeList';
 import employeesList from '@/constants/employees.json' with { type: 'json' };
+import { Employee } from './types/types';
+import { Button } from "@/components/ui/button"
 
 function App() {
+  const [employees, setEmployees] = useState<Employee[]>(employeesList);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | object | null>(null);
+
+  const fetchEmployees = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('http://localhost:4566/api/employees');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setEmployees(data);
+    } catch (err: unknown) {
+      if (typeof err === "object" || typeof err === "string") {
+        setError(err || 'Failed to fetch employees');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
+
   return (
     <div className="p-4 max-w-screen-xl mx-auto">
       <header>
@@ -17,7 +47,10 @@ function App() {
       </header>
       <main className="my-4">
         <p className="mb-4">You can view the employees' skill matrix here.</p>
-        <EmployeeList employees={employeesList} />
+        <div className="mb-4"><Button onClick={fetchEmployees}>Refresh</Button></div>
+        <div>Loading: {loading}</div>
+        <div className="mb-4">Error: {error?.toString()}</div>
+        <EmployeeList employees={employees} />
       </main>
       <footer className="">Made with ❤️ love and ☕ coffee. Since 2025.</footer>
     </div>
