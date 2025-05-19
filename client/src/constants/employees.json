@@ -1,0 +1,26 @@
+[
+  {
+    "id": "a1f5d0e2-3e2f-4c75-8b90-09ac5f889af1",
+    "name": "Alice Johnson",
+    "team": "Y",
+    "domain": "frontend development",
+    "expertise_level": "B2",
+    "position": "frontend developer"
+  },
+  {
+    "id": "b6f11e5c-d3de-4ed4-9f3a-8e8ab53d8b6f",
+    "name": "Bob Williams",
+    "team": "Z",
+    "domain": "backend development",
+    "expertise_level": "C1",
+    "position": "backend developer"
+  },
+  {
+    "id": "3b4f69ce-4c51-48f1-8440-4a186d19e0f4",
+    "name": "Charlie Davis",
+    "team": "X",
+    "domain": "frontend development",
+    "expertise_level": "A2",
+    "position": "frontend developer"
+  }
+]
