@@ -1,4 +1,4 @@
-FROM node:20.18.0-alpine AS builder
+FROM node:23.11.1-alpine AS builder
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -8,7 +8,7 @@ COPY tsconfig.json ./
 COPY src ./src
 RUN npm run build
 
-FROM node:20.18.0-alpine AS runner
+FROM node:23.11.1-alpine AS runner
 WORKDIR /app
 
 COPY --from=builder /app/package.json ./
