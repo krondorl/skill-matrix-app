@@ -122,10 +122,8 @@ You need at least `Node.js 20.18.0` to run this app.
 Run these commands in the top level repo folder:
 
 1. `npm run setup-env`
-1. `npm run install:server`
+1. `npm run install:all`
 1. `npm start`
-
-**Please note**: only the backend is working at the moment.
 
 ## License
 
