@@ -14,6 +14,7 @@ Using these technologies:
   - 🟦 TypeScript
   - 🟢 Node.js
   - 🚀 Express
+  - 🚨 CORS enabled for basic REST methods
   - 🚦 Express Rate Limit
   - 📦 PostgreSQL
 - Containers: 🐳 Docker
