@@ -10,11 +10,12 @@
     "install:client": "npm install --prefix client",
     "install:all": "npm run install:server && npm run install:client",
     "run:server": "cd server && npm run dev",
-    "run:client": "npm start --prefix server",
+    "run:client": "cd client && npm run dev",
     "start:db": "docker compose -f docker-compose-pg-only.yml up -d",
     "wait-for-db": "cd server/src && npx tsx wait-for-db.ts",
     "start:server": "npm run run:server",
-    "start": "npm run start:db && npm run start:server"
+    "start:client": "npm run run:client",
+    "start": "concurrently \"npm run start:db\" \"npm run start:server\" \"npm run start:client\""
   },
   "keywords": [
     "full-stack",
@@ -24,5 +25,8 @@
     "postgresql"
   ],
   "author": "Adam Burucs",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
