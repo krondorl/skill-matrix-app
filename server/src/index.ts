@@ -50,8 +50,19 @@ const limiter = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 });
 
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+
 const corsOptions: cors.CorsOptions = {
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // Allow requests with no origin like mobile apps or curl requests
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true); // Origin allowed
+    } else {
+      callback(new Error('Not allowed by CORS')); // Origin not allowed
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
