@@ -46,7 +46,7 @@ if (dbConnect) {
 
 const limiter = rateLimit({
   windowMs: 1000,
-  limit: 1,
+  limit: 2,
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 });
 
