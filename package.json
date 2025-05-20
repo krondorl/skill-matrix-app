@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "setup-env": "node server/setup-env.js",
+    "setup-env": "node tools/setup-env.js",
     "install:server": "cd server && npm install",
     "install:client": "cd client && npm install",
     "install:all": "npm run install:server && npm run install:client",
