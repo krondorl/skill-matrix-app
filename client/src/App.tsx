@@ -21,7 +21,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:4566/api/employees');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/employees`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
