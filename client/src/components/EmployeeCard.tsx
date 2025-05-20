@@ -13,6 +13,8 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { type Employee } from '@/types/types';
+import EmployeePosition from './EmployeePosition';
+import EmployeeExpertise from './EmployeeExpertise';
 
 type EmployeeProps = {
   employee: Employee;
@@ -27,8 +29,11 @@ export default function EmployeeCard({ employee }: EmployeeProps) {
         <CardDescription>employee</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>{employee?.position}</p>
-        <p>expertise level: {employee?.expertise_level}</p>
+        <EmployeePosition position={employee?.position} />
+        <p>
+          expertise level:{' '}
+          <EmployeeExpertise expertise={employee?.expertise_level} />
+        </p>
       </CardContent>
     </Card>
   );
