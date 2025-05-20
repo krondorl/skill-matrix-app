@@ -22,6 +22,7 @@ export default function EmployeeCard({ employee }: EmployeeProps) {
   return (
     <Card className="employee_card">
       <CardHeader>
+        <div>👤</div>
         <CardTitle>{employee?.name}</CardTitle>
         <CardDescription>employee</CardDescription>
       </CardHeader>
