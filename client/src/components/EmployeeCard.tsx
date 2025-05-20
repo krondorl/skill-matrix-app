@@ -20,7 +20,7 @@ type EmployeeProps = {
 
 export default function EmployeeCard({ employee }: EmployeeProps) {
   return (
-    <Card>
+    <Card className="employee_card">
       <CardHeader>
         <CardTitle>{employee?.name}</CardTitle>
         <CardDescription>employee</CardDescription>
