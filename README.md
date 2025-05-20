@@ -35,12 +35,22 @@ Example person JSON:
 
 ```
 {
+  "id": "1f829d72-317a-4b45-bd1d-9de8dc270b18",
   "name": "John Smith",
   "team": "X",
   "domain": "frontend development",
   "expertiseLevel": "B3",
   "position": "frontend developer",
   "skills": ["HTML", "CSS", "SCSS", "JavaScript", "TypeScript", "Angular"]
+}
+```
+
+Example of a skill JSON:
+
+```
+{
+  "id": "9a5f2a1e-1d55-4726-bb49-ccf7c8a0c3f3",
+  "name": "HTML",
 }
 ```
 
