@@ -41,7 +41,28 @@ Example person JSON:
   "domain": "frontend development",
   "expertiseLevel": "B3",
   "position": "frontend developer",
-  "skills": ["HTML", "CSS", "SCSS", "JavaScript", "TypeScript", "Angular"]
+  "skills": [
+    {
+      "id": "f1e6c9d3-2d0a-4bd3-9457-9a1d62c6e9b4",
+      "name": "HTML"
+    },
+    {
+      "id": "16e4f45b-4692-4f3e-9f76-442d50e3fa3c",
+      "name": "CSS"
+    },
+    {
+      "id": "7fc91d82-ff90-4a3e-bdfc-d7c59a75dc2a",
+      "name": "SCSS"
+    },
+    {
+      "id": "4b122be5-dc16-4d89-84c2-c0e8d6d57a79",
+      "name": "TypeScript"
+    },
+    {
+      "id": "48c17ea4-86cf-4c2e-8a6d-25086b5f1874",
+      "name": "Angular"
+    }
+  ]
 }
 ```
 
